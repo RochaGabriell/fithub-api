@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AccountConfig(AppConfig):
+class ExerciseConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'fithub.apps.account'
+    name = 'fithub.apps.exercise'
