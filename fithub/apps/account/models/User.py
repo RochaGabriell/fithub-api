@@ -43,6 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         null=True,
         blank=True,
     )
+
     is_staff = models.BooleanField(
         verbose_name=_("Equipe"),
         default=False,
@@ -55,6 +56,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name=_("Ativo"),
         default=True,
     )
+    
     date_joined = models.DateTimeField(
         verbose_name=_("data de entrada"),
         auto_now_add=True,
