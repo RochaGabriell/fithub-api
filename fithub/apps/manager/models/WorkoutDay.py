@@ -1,20 +1,28 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+weekdays = [
+    (1, _('Segunda-feira')),
+    (2, _('Terça-feira')),
+    (3, _('Quarta-feira')),
+    (4, _('Quinta-feira')),
+    (5, _('Sexta-feira')),
+    (6, _('Sábado')),
+    (7, _('Domingo')),
+]
 
-class DayList(models.Model):
+
+class WorkoutDay(models.Model):
 
     workout = models.ForeignKey(
         'Workout',
         verbose_name=_('Treino'),
-        related_name='daylists',
+        related_name='workoutdays',
         on_delete=models.CASCADE,
     )
-    day = models.ForeignKey(
-        'Weekdays',
+    day = models.IntegerField(
         verbose_name=_('Dia da semana'),
-        related_name='daylists',
-        on_delete=models.CASCADE,
+        choices=weekdays,
     )
     description = models.TextField(
         verbose_name=_('Descrição do treino'),
@@ -29,9 +37,9 @@ class DayList(models.Model):
     )
 
     def __str__(self):
-        return self.day.name
+        return f"{self.workout} - {weekdays[self.day - 1][1]}"
 
     class Meta:
-        verbose_name = _('Dia da semana')
-        verbose_name_plural = _('Dias da semana')
+        verbose_name = _('Treino do dia')
+        verbose_name_plural = _('Treinos do dia')
         ordering = ['day']

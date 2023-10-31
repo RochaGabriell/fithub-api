@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import (
+    DayExercise,
+    Workout,
+    WorkoutDay,
+)
+
+admin.site.register(DayExercise)
+admin.site.register(Workout)
+admin.site.register(WorkoutDay)

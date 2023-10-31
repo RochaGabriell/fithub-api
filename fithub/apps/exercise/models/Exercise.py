@@ -13,12 +13,14 @@ class Exercise(models.Model):
     type_exercise = models.ForeignKey(
         "TypeExercise",
         verbose_name=_("Tipo de exercício"),
+        related_name="exercises",
         help_text=_("Tipo de exercício"),
         on_delete=models.PROTECT,
     )
     difficulty = models.ForeignKey(
         "Difficulty",
         verbose_name=_("Dificuldade"),
+        related_name="exercises",
         help_text=_("Dificuldade do exercício"),
         on_delete=models.PROTECT,
     )
@@ -28,20 +30,21 @@ class Exercise(models.Model):
     )
     muscles_primary = models.ManyToManyField(
         "Muscle",
-        related_name="muscles_primary",
         verbose_name=_("Músculo primário"),
+        related_name="muscles_primary_exercises",
         help_text=_("Músculo primário utilizado"),
     )
     muscles_secondary = models.ManyToManyField(
         "Muscle",
-        related_name="muscles_secondary",
         verbose_name=_("Músculo secundário"),
+        related_name="muscles_secondary_exercises",
         help_text=_("Músculo secundário utilizado"),
         blank=True,
     )
     equipment = models.ManyToManyField(
         "Equipment",
         verbose_name=_("Equipamento"),
+        related_name="exercises",
         help_text=_("Equipamento utilizado"),
         blank=True,
     )

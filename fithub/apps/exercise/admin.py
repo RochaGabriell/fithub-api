@@ -2,13 +2,15 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Exercise
-from .models import Image
-from .models import Difficulty
-from .models import Equipment
-from .models import Muscle
-from .models import TypeExercise
-from .models import WeightUnit
+from .models import (
+    Exercise,
+    Image,
+    Difficulty,
+    Equipment,
+    Muscle,
+    TypeExercise,
+    WeightUnit,
+)
 
 admin.site.register(Exercise)
 admin.site.register(Image)

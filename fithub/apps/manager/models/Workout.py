@@ -8,8 +8,9 @@ class Workout(models.Model):
 
     user = models.ForeignKey(
         User,
-        on_delete=models.CASCADE,
+        verbose_name=_('Usuário'),
         related_name='workouts',
+        on_delete=models.CASCADE,
     )
     name = models.CharField(
         verbose_name=_('Nome do treino'),

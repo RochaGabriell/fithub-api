@@ -7,7 +7,7 @@ from fithub.apps.exercise.models import Exercise
 class DayExercise(models.Model):
 
     day_list = models.ForeignKey(
-        'DayList',
+        'WorkoutDay',
         verbose_name=_('Lista de dias'),
         related_name='dayexercises',
         on_delete=models.CASCADE,

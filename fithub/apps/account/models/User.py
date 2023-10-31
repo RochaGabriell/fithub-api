@@ -1,6 +1,6 @@
 from datetime import date
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import (AbstractBaseUser, PermissionsMixin)
 
 from fithub.apps.account.managers import CustomUserManager
@@ -71,12 +71,16 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomUserManager()
 
+    def save(self, *args, **kwargs):
+        self.username = self.username.lower()
+        super().save(*args, **kwargs)
+
     def show_age(self):
         today = date.today()
         return today.year - self.birth_date.year - ((today.month, today.day) < (self.birth_date.month, self.birth_date.day))
 
     def __str__(self):
-        return f"{self.name} - {self.email}"
+        return f"{self.username} - {self.email}"
 
     class Meta:
         verbose_name = _("Usuário")

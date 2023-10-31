@@ -7,6 +7,7 @@ class Image(models.Model):
     exercise = models.ForeignKey(
         "Exercise",
         verbose_name=_("Exercício"),
+        related_name="images",
         help_text=_("Exercício ao qual a imagem pertence"),
         on_delete=models.PROTECT,
     )
