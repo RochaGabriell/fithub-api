@@ -7,6 +7,11 @@ class Exercise(models.Model):
     name = models.CharField(
         verbose_name=_("Nome"),
         help_text=_("Nome do exercício"),
+        error_messages={
+            "blank": _("Este campo não pode ficar em branco."),
+            "null": _("Este campo não pode ser nulo."),
+            "unique": _("Já existe um exercício com este nome."),
+        },
         max_length=255,
         unique=True,
     )
@@ -27,6 +32,10 @@ class Exercise(models.Model):
     instructions = models.TextField(
         verbose_name=_("Instruções"),
         help_text=_("Instruções do exercício"),
+        error_messages={
+            "blank": _("Este campo não pode ficar em branco."),
+            "null": _("Este campo não pode ser nulo."),
+        },
     )
     muscles_primary = models.ManyToManyField(
         "Muscle",

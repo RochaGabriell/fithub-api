@@ -13,6 +13,11 @@ class TypeExercise(models.Model):
     name = models.CharField(
         verbose_name=_("Nome"),
         help_text=_("Nome do tipo de exercício"),
+        error_messages={
+            "blank": _("Este campo não pode ficar em branco."),
+            "null": _("Este campo não pode ser nulo."),
+            "unique": _("Já existe um tipo de exercício com este nome."),
+        },
         max_length=45,
         unique=True,
     )

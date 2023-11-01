@@ -1,0 +1,7 @@
+from .DifficultySerializer import DifficultySerializer
+from .EquipmentSerializer import EquipmentSerializer
+from .ExerciseSerializer import ExerciseSerializer
+from .ImageSerializer import ImageSerializer
+from .MuscleSerializer import MuscleSerializer
+from .TypeExerciseSerializer import TypeExerciseSerializer
+from .WeightUnitSerializer import WeightUnitSerializer

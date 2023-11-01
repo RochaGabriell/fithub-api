@@ -14,7 +14,7 @@ class Image(models.Model):
     image = models.ImageField(
         verbose_name=_("Imagem"),
         help_text=_("Apenas PNG, JPG e SVG"),
-        upload_to="exercise_images/",
+        upload_to="media/exercise_images/",
     )
     is_main = models.BooleanField(
         verbose_name=_("Imagem principal"),
