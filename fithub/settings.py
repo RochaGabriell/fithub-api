@@ -65,7 +65,19 @@ INSTALLED_APPS = [
     # Third-party
     'rest_framework_simplejwt',
     'drf_yasg',
+    'django_extensions',
 ]
+
+"""
+Generate UML Class Diagram
+    pip install django-extensions
+    pip install pyparsing pydot
+    python manage.py graph_models --pydot -a -g -o ClassUML.png
+"""
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
