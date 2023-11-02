@@ -16,8 +16,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
+
+# swagger settings
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Infinity Fire solution APIs",
+      default_version='v0.2.0',
+      description="Welcome to the API Documentation",
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny]
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('fithub.apps.exercise.urls'), name="exercise"),
+    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('api/v1/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('api/v1/account/', include('fithub.apps.account.urls'), name="account"),
+    path('api/v1/exercise/', include('fithub.apps.exercise.urls'), name="exercise"),
 ]
