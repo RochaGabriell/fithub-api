@@ -22,19 +22,23 @@ from rest_framework import permissions
 
 # swagger settings
 schema_view = get_schema_view(
-   openapi.Info(
-      title="Infinity Fire solution APIs",
-      default_version='v0.2.0',
-      description="Welcome to the API Documentation",
-   ),
-   public=True,
-   permission_classes=[permissions.AllowAny]
+    openapi.Info(
+        title="Infinity Fire solution APIs",
+        default_version='v0.2.0',
+        description="Welcome to the API Documentation",
+    ),
+    public=True,
+    permission_classes=[permissions.AllowAny]
 )
 
 urlpatterns = [
+    # Django admin
     path('admin/', admin.site.urls),
+    # Swagger e Redoc
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api/v1/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    # Apps
     path('api/v1/account/', include('fithub.apps.account.urls'), name="account"),
     path('api/v1/exercise/', include('fithub.apps.exercise.urls'), name="exercise"),
+    path('api/v1/manager/', include('fithub.apps.manager.urls'), name="manager"),
 ]
