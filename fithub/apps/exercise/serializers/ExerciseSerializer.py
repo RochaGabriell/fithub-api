@@ -6,18 +6,7 @@ from fithub.apps.exercise.models import Exercise
 class ExerciseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exercise
-        fields = [
-            "id",
-            "name",
-            "type_exercise",
-            "difficulty",
-            "instructions",
-            "muscles_primary",
-            "muscles_secondary",
-            "equipment",
-            "variations",
-            "weight_unit",
-        ]
+        fields = "__all__"
 
     # def to_representation(self, instance):
     #     # Inplementar HATEOAS (Hypermedia as the Engine of Application State)

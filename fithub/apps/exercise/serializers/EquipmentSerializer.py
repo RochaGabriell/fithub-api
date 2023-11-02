@@ -8,7 +8,4 @@ class EquipmentSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Equipment
-        fields = [
-            "id",
-            "name",
-        ]
+        fields = "__all__"

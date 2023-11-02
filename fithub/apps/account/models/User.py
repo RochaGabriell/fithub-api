@@ -1,4 +1,3 @@
-from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import (AbstractBaseUser, PermissionsMixin)
@@ -56,7 +55,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name=_("Ativo"),
         default=True,
     )
-    
+
     date_joined = models.DateTimeField(
         verbose_name=_("data de entrada"),
         auto_now_add=True,
@@ -74,10 +73,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     def save(self, *args, **kwargs):
         self.username = self.username.lower()
         super().save(*args, **kwargs)
-
-    def show_age(self):
-        today = date.today()
-        return today.year - self.birth_date.year - ((today.month, today.day) < (self.birth_date.month, self.birth_date.day))
 
     def __str__(self):
         return f"{self.username} - {self.email}"
