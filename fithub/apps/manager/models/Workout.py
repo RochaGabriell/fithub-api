@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from fithub.apps.account.models import User
+from fithub.apps.exercise.models import Difficulty
 
 
 class Workout(models.Model):
@@ -18,6 +19,17 @@ class Workout(models.Model):
     )
     description = models.TextField(
         verbose_name=_('Descrição do treino'),
+    )
+    difficulty = models.ForeignKey(
+        Difficulty,
+        verbose_name=_("Dificuldade"),
+        related_name="workouts",
+        help_text=_("Dificuldade do treino"),
+        on_delete=models.PROTECT,
+    )
+    public = models.BooleanField(
+        verbose_name=_('Público'),
+        default=True,
     )
     created_at = models.DateTimeField(
         verbose_name=_('Data de criação'),

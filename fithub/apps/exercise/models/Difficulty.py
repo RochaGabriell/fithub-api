@@ -6,7 +6,7 @@ class Difficulty(models.Model):
 
     name = models.CharField(
         verbose_name=_("Nome"),
-        help_text=_("Dificuldade do exercício"),
+        help_text=_("Dificuldade"),
         error_messages={
             "blank": _("Este campo não pode ficar em branco."),
             "null": _("Este campo não pode ser nulo."),
