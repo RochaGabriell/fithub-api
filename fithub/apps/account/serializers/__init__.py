@@ -1,2 +1,3 @@
 from .UserSerializer import UserSerializer
+from .MyTokenObtainPairSerializer import MyTokenObtainPairSerializer
 from .MeasurementsSerializer import MeasurementsSerializer
