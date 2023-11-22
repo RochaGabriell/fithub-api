@@ -18,6 +18,10 @@ class DayExercise(models.Model):
         related_name='dayexercises',
         on_delete=models.CASCADE,
     )
+    series = models.IntegerField(
+        verbose_name=_('Séries'),
+        default=4,
+    )
     repetitions = models.IntegerField(
         verbose_name=_('Repetições'),
         blank=True,

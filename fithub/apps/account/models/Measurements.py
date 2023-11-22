@@ -42,17 +42,17 @@ class Measurements(models.Model):
     )
     height = models.DecimalField(
         verbose_name=_("Altura"),
-        max_digits=3,
+        max_digits=5,
         decimal_places=2,
     )
     shoulder = models.DecimalField(
         verbose_name=_("Ombro"),
-        max_digits=4,
+        max_digits=5,
         decimal_places=2,
     )
     chest = models.DecimalField(
         verbose_name=_("Peito"),
-        max_digits=4,
+        max_digits=5,
         decimal_places=2,
     )
     right_arm = models.DecimalField(
@@ -87,17 +87,17 @@ class Measurements(models.Model):
     )
     waist = models.DecimalField(
         verbose_name=_("Cintura"),
-        max_digits=4,
+        max_digits=5,
         decimal_places=2,
     )
     abdomen = models.DecimalField(
         verbose_name=_("Abdômen"),
-        max_digits=4,
+        max_digits=5,
         decimal_places=2,
     )
     hip = models.DecimalField(
         verbose_name=_("Quadril"),
-        max_digits=4,
+        max_digits=5,
         decimal_places=2,
     )
     right_thigh = models.DecimalField(
