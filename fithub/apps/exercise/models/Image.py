@@ -13,13 +13,23 @@ class Image(models.Model):
     )
     image = models.ImageField(
         verbose_name=_("Imagem"),
-        help_text=_("Apenas PNG, JPG e SVG"),
+        help_text=_("Apenas PNG, JPG, SVG e GIF"),
         upload_to="media/exercise_images/",
     )
     is_main = models.BooleanField(
         verbose_name=_("Imagem principal"),
         help_text=_("Marque a caixa se quiser definir esta imagem como principal para o exercício (será mostrada, por exemplo, na pesquisa). A primeira imagem é marcada automaticamente pelo sistema."),
         default=True,
+    )
+    sex = models.CharField(
+        verbose_name=_("Sexo"),
+        help_text=_("Sexo para o qual a imagem é destinada"),
+        max_length=1,
+        choices=(
+            ("M", _("Masculino")),
+            ("F", _("Feminino"))
+        ),
+        default="M",
     )
     description = models.CharField(
         verbose_name=_("Descrição"),

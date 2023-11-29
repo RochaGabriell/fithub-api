@@ -24,6 +24,7 @@ class DayExercise(models.Model):
     )
     repetitions = models.IntegerField(
         verbose_name=_('Repetições'),
+        default=10,
         blank=True,
         null=True,
     )

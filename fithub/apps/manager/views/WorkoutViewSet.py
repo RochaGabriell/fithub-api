@@ -1,4 +1,6 @@
 from rest_framework import viewsets, permissions
+from django.utils.translation import gettext_lazy as _
+from rest_framework import serializers
 
 from fithub.apps.manager.serializers import WorkoutSerializer
 from fithub.apps.manager.models import Workout
@@ -11,3 +13,15 @@ class WorkoutViewSet(viewsets.ModelViewSet):
     queryset = Workout.objects.all()
     serializer_class = WorkoutSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def perform_create(self, serializer):
+        if serializer.validated_data["is_default"] and Workout.objects.filter(user=serializer.validated_data["user"], is_default=True).exists():
+            raise serializers.ValidationError(
+                _("Já existe um treino padrão para este usuário."))
+        serializer.save()
+
+    def perform_update(self, serializer):
+        if serializer.validated_data["is_default"] and Workout.objects.filter(user=serializer.validated_data["user"], is_default=True).exists():
+            raise serializers.ValidationError(
+                _("Já existe um treino padrão para este usuário."))
+        serializer.save()
