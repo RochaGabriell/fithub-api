@@ -2,7 +2,7 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework.routers import DefaultRouter
 from django.urls import path
 
-from fithub.apps.account.views import UserViewSet, LogoutViewSet, MeasurementsViewSet, MyTokenObtainPairViewSet
+from fithub.apps.account.views import UserViewSet, LogoutViewSet, MeasurementsViewSet, MeasurementsListByUser, MyTokenObtainPairViewSet
 from fithub.apps.account.views.UserViewSet import get_profile
 
 app_name = 'account'
@@ -10,6 +10,7 @@ app_name = 'account'
 router = DefaultRouter(trailing_slash=False)
 router.register(r'users', UserViewSet)
 router.register(r'measurements', MeasurementsViewSet)
+router.register(r'measurements-by-user', MeasurementsListByUser)
 
 urlpatterns = [
     path('token/', MyTokenObtainPairViewSet.as_view(),

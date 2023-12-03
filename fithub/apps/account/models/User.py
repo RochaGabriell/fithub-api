@@ -28,9 +28,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         unique=True,
     )
     birth_date = models.DateField(
-        verbose_name=_("Data de nascimento"),
-        null=True,
-        blank=True,
+        verbose_name=_("Data de nascimento")
     )
     sex = models.CharField(
         verbose_name=_("Sexo"),
@@ -38,9 +36,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         choices=(
             ("M", "Masculino"),
             ("F", "Feminino"),
-        ),
-        null=True,
-        blank=True,
+        )
     )
 
     is_staff = models.BooleanField(
