@@ -1,3 +1,5 @@
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework import viewsets, permissions
 
 from fithub.apps.exercise.serializers import ExerciseSerializer
@@ -11,3 +13,10 @@ class ExerciseViewSet(viewsets.ModelViewSet):
     queryset = Exercise.objects.all()
     serializer_class = ExerciseSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    search_fields = ['name']
+    filterset_fields = ['type_exercise',
+                        'difficulty',
+                        'muscles_primary',
+                        'equipment'
+                        ]
