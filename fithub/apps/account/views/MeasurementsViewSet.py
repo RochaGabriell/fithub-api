@@ -29,6 +29,9 @@ class MeasurementsViewSet(viewsets.ModelViewSet):
 
         serializer.save()
 
+    def get_queryset(self):
+        return Measurements.objects.filter(user=self.request.user)
+
 
 class MeasurementsListByUser(viewsets.mixins.ListModelMixin, viewsets.GenericViewSet):
     """
