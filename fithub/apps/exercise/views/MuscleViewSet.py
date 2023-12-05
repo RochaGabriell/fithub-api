@@ -1,4 +1,5 @@
 from rest_framework import viewsets, permissions
+from rest_framework.response import Response
 
 from fithub.apps.exercise.serializers import MuscleSerializer
 from fithub.apps.exercise.models import Muscle
@@ -11,3 +12,6 @@ class MuscleViewSet(viewsets.ModelViewSet):
     queryset = Muscle.objects.all()
     serializer_class = MuscleSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_paginated_response(self, data):
+        return Response(data)
