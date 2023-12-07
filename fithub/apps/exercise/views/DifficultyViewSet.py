@@ -1,4 +1,5 @@
 from rest_framework import viewsets, permissions
+from rest_framework.response import Response
 
 from fithub.apps.exercise.serializers import DifficultySerializer
 from fithub.apps.exercise.models import Difficulty
@@ -11,3 +12,6 @@ class DifficultyViewSet(viewsets.ModelViewSet):
     queryset = Difficulty.objects.all()
     serializer_class = DifficultySerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_paginated_response(self, data):
+        return Response(data)
