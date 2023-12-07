@@ -13,6 +13,7 @@ class WorkoutDayViewSet(viewsets.ModelViewSet):
     queryset = WorkoutDay.objects.all()
     serializer_class = WorkoutDaySerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = None
 
     def perform_create(self, serializer):
         if WorkoutDay.objects.filter(workout=serializer.validated_data["workout"], day=serializer.validated_data["day"]).exists():

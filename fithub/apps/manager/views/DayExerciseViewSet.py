@@ -11,3 +11,4 @@ class DayExerciseViewSet(viewsets.ModelViewSet):
     queryset = DayExercise.objects.all()
     serializer_class = DayExerciseSerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = None

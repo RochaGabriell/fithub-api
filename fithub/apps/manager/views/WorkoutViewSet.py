@@ -25,3 +25,6 @@ class WorkoutViewSet(viewsets.ModelViewSet):
             raise serializers.ValidationError(
                 _("Já existe um treino padrão para este usuário."))
         serializer.save()
+
+    def get_queryset(self):
+        return Workout.objects.filter(user=self.request.user) | Workout.objects.filter(public=True)
