@@ -1,5 +1,4 @@
 from rest_framework import viewsets, permissions
-from rest_framework.response import Response
 
 from fithub.apps.exercise.serializers import TypeExerciseSerializer
 from fithub.apps.exercise.models import TypeExercise
@@ -12,6 +11,4 @@ class TypeExerciseViewSet(viewsets.ModelViewSet):
     queryset = TypeExercise.objects.all()
     serializer_class = TypeExerciseSerializer
     permission_classes = [permissions.IsAuthenticated]
-
-    def get_paginated_response(self, data):
-        return Response(data)
+    pagination_class = None
