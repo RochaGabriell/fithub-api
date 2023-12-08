@@ -29,11 +29,14 @@ class Workout(models.Model):
     )
     public = models.BooleanField(
         verbose_name=_('Público'),
+        help_text=_(
+            'Se marcado, este treino será visível para outros usuários'),
         default=True,
     )
     default = models.BooleanField(
         verbose_name=_('Padrão'),
-        help_text=_('Se marcado, este treino será o padrão para aparecer na página inicial'),
+        help_text=_(
+            'Se marcado, este treino será o padrão para aparecer na página inicial'),
         default=False,
     )
     created_at = models.DateTimeField(

@@ -1,3 +1,5 @@
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework import viewsets, permissions
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
@@ -13,6 +15,9 @@ class WorkoutViewSet(viewsets.ModelViewSet):
     queryset = Workout.objects.all()
     serializer_class = WorkoutSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    search_fields = ['name']
+    filterset_fields = ['difficulty', 'public']
 
     def perform_create(self, serializer):
         if serializer.validated_data["is_default"] and Workout.objects.filter(user=serializer.validated_data["user"], is_default=True).exists():
