@@ -20,13 +20,13 @@ class WorkoutViewSet(viewsets.ModelViewSet):
     filterset_fields = ['difficulty', 'public']
 
     def perform_create(self, serializer):
-        if serializer.validated_data["is_default"] and Workout.objects.filter(user=serializer.validated_data["user"], is_default=True).exists():
+        if serializer.validated_data["default"] and Workout.objects.filter(user=serializer.validated_data["user"], default=True).exists():
             raise serializers.ValidationError(
                 _("Já existe um treino padrão para este usuário."))
         serializer.save()
 
     def perform_update(self, serializer):
-        if serializer.validated_data["is_default"] and Workout.objects.filter(user=serializer.validated_data["user"], is_default=True).exists():
+        if serializer.validated_data["default"] and Workout.objects.filter(user=serializer.validated_data["user"], default=True).exists():
             raise serializers.ValidationError(
                 _("Já existe um treino padrão para este usuário."))
         serializer.save()
