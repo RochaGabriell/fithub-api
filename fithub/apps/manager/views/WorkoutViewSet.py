@@ -48,6 +48,12 @@ class WorkoutViewSet(viewsets.ModelViewSet):
         """
         queryset = Workout.objects.filter(user=request.user)
         serializer = WorkoutSerializer(queryset, many=True)
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = WorkoutSerializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
         return Response(serializer.data)
 
     @action(detail=False, methods=['get'])
