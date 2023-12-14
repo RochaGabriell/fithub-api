@@ -19,7 +19,7 @@ O FitHub é um aplicativo dedicado ao fitness e bem-estar, oferecendo aos usuár
 	- **Equipamento;**
 	- **Dificuldade;**
 	- **Tipo de exercício.**
-	- **Exercícios por Tipo:**
+	- **Exercícios por Tipo.**
 
 - **2.3 Assistência por NLP:** Implementação de um chatbot que fornece dicas e responde a perguntas dos usuários relacionadas a treinamento e alimentação.
 
