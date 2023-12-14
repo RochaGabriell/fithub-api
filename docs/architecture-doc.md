@@ -19,14 +19,13 @@ O FitHub é um aplicativo dedicado ao fitness e bem-estar, oferecendo aos usuár
 	- **Equipamento;**
 	- **Dificuldade;**
 	- **Tipo de exercício.**
+	- **Exercícios por Tipo:**
 
-- **2.3 Exercícios por Tipo:** Os exercícios são categorizados por tipo, incluindo Cardio, Força, Alongamento, Calistenia.
+- **2.3 Assistência por NLP:** Implementação de um chatbot que fornece dicas e responde a perguntas dos usuários relacionadas a treinamento e alimentação.
 
-- **2.4 Assistência por NLP:** Implementação de um chatbot que fornece dicas e responde a perguntas dos usuários relacionadas a treinamento e alimentação.
+- **2.4 Treinamento Personalizado:** Os usuários podem criar programas de treinamento personalizados com base nos exercícios disponíveis no sistema.
 
-- **2.5 Treinamento Personalizado:** Os usuários podem criar programas de treinamento personalizados com base nos exercícios disponíveis no sistema.
-
-- **2.6 Acompanhamento de Progresso:** Os usuários podem rastrear seu progresso ao longo do tempo, incluindo medições e peso corporal.
+- **2.5 Acompanhamento de Progresso:** Os usuários podem rastrear seu progresso ao longo do tempo, incluindo medições e peso corporal.
 
 ## 3: Visão de Casos de Uso
 
