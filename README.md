@@ -6,6 +6,8 @@
 
 Bem-vindo à FitHub API, o backend da sua jornada em direção à saúde e bem-estar. Este projeto, parte integrante do meu trabalho acadêmico, utiliza o Django REST Framework para fornecer uma infraestrutura poderosa e eficiente para a aplicação FitHub.
 
+| Confira o **[Front-End](https://github.com/RochaGabriell/fithub)** do sistema.
+
 ## Tecnologias Utilizadas 🛠️
 
 - **Django REST Framework:**
