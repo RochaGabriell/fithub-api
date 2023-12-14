@@ -20,6 +20,9 @@ Bem-vindo à FitHub API, o backend da sua jornada em direção à saúde e bem-e
 
 - **Versatilidade:** Seja em casa ou na academia, com ou sem equipamento, a FitHub API é flexível para se adequar ao estilo de vida do usuário, removendo barreiras para uma vida mais saudável.
 
+
+| Para obter informações adicionais sobre o sistema, consulte a **[documentação.](https://github.com/RochaGabriell/fithub-api/blob/main/docs/architecture-doc.md)**
+
 ## Como Configurar e Executar 🏃‍♂️
 
 ### 1. Clone o Repositório
